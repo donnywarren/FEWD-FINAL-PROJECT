@@ -8,3 +8,23 @@ html {
   -moz-box-sizing: inherit;
   box-sizing: inherit;
   }
+
+.image-box {
+  margin: 0 calc(50% - 188px) ;
+}
+  .front-page-ice-cubes {
+    width: 376px;
+  }
+
+  h1 {
+    font-size: 72px;
+    color: blue;
+    margin-top: 100px;
+    text-align: center;
+
+  }
+
+  .test {
+    width: 25%;
+    height: auto;
+  }
