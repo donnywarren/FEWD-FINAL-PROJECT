@@ -9,22 +9,24 @@ html {
   box-sizing: inherit;
   }
 
-.image-box {
-  margin: 0 calc(50% - 188px) ;
+.image-container {
+  margin: 0 calc(50% - 150px);
 }
-  .front-page-ice-cubes {
-    width: 376px;
-  }
 
-  h1 {
-    font-size: 72px;
-    color: blue;
-    margin-top: 100px;
-    text-align: center;
+h1 {
+  font-size: 72px;
+  color: blue;
+  margin-top: 100px;
+  text-align: center;
+}
 
-  }
+.photo {
+  width: 300px;
+  height: auto;
+}
 
-  .test {
-    width: 25%;
-    height: auto;
-  }
+.meme {
+  width: 300px;
+  height: auto;
+  border: 1px solid #000;
+}
