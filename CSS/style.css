@@ -13,11 +13,56 @@ html {
   margin: 0 calc(50% - 150px);
 }
 
-h1 {
-  font-size: 72px;
-  color: blue;
-  margin-top: 100px;
-  text-align: center;
+html, body {
+  position: relative;
+  min-height: 100vh;
+}
+.background-video {
+  position: fixed;
+  top: 0;
+  object-fit: cover;
+  width: 100%;
+  min-height: 600px;
+  z-index: -100;
+}
+
+.hero-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* .image-boredom{
+  position: absolute;
+  width: 80%;
+  height: auto;
+  bottom: calc(60px + 20%);
+  left: 50%;
+  transform: translate(-50%,0);
+} */
+
+.image-boredom-buster {
+  position: absolute;
+  width: 75%;
+  height: auto;
+  bottom: 60px;
+  left: 50%;
+  transform: translate(-50%,0);
+}
+
+.gradient {
+  position: fixed;
+  height: 400px;
+  width: 100%;
+  background-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+  bottom: 10%;
+}
+.bottom-blackout {
+  position: fixed;
+  bottom: 0;
+  height:10%;
+  width: 100%;
+  background: #000;
 }
 
 .photo {
