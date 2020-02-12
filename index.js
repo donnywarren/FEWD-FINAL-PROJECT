@@ -59,11 +59,12 @@ $(document).ready(function(){
             console.log(data);
             var description = data.results[7].title;
             var delivery = data.results[7].url;
-            // var photo = data.results[19].media[0].media-metadata[2];
+            var photo = data.results[7].media[0]["media-metadata"][2].url;
 
             $(".description").text(description);
             $(".delivery").text(delivery);
-            // $(".photo").attr("src", photo);
+            $(".photo").attr("src", photo);
+            console.log(photo);
             // data.results.forEach(makeCard);
             // data.results.forEach(function(user) {
             // });
