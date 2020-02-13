@@ -135,25 +135,24 @@ $(document).ready(function(){
       // fetchPopular();
 
 
-  // function fetchJoke() {
-  //       $.ajax({
-  //         // url: 'https://sv443.net/jokeapi/v2/joke/any',
-  //         // url: 'https://sv443.net/jokeapi/v2/joke/any/?type=single',
-  //         url: 'https://sv443.net/jokeapi/v2/joke/any/?type=twopart',
-  //         success: function(data) {
-  //           console.log(data);
-  //           // var oneLiner = data.joke;
-  //           var twoPart = data.setup;
-  //           var delivery = data.delivery;
-  //           // $(".description").text(oneLiner);
-  //           $(".description").text(twoPart);
-  //           $(".delivery").text(delivery);
-  //           // data.results.forEach(makeCard);
-  //           // data.results.forEach(function(user) {
-  //           // });
-  //         }
-  //       });
-  //     }
-  //     fetchJoke();
+  function fetchJoke() {
+        $.ajax({
+          url: 'https://sv443.net/jokeapi/v2/joke/any',
+          // url: 'https://sv443.net/jokeapi/v2/joke/any/?type=single',
+          // url: 'https://sv443.net/jokeapi/v2/joke/any/?type=twopart',
+          success: function(data) {
+            console.log(data);
+            var oneLiner = data.joke;
+            var twoPart = data.setup;
+            var delivery = data.delivery;
+            $(".oneliner").text(oneLiner);
+            $(".setup").text(twoPart);
+            $(".delivery").text(delivery);
+          }
+        });
+      };
+      fetchJoke();
 
+
+// onload clossing braces below
 });
