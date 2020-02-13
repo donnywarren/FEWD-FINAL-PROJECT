@@ -77,7 +77,7 @@ h6  {
 }
 
 @keyframes expandOut {
-  70% {width: 150%; opacity: 1}
+  70% {width: 200%; opacity: 1}
   100% {width: 0; opacity: 0}
 }
 
@@ -200,6 +200,14 @@ h6  {
   text-align: center;
 }
 
+.category-page-bottom-blackout {
+  position: fixed;
+  bottom: 0;
+  height:10%;
+  width: 100%;
+  background-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
 
 @media only screen and (min-width: 900px){
   .image-boredom-busters-small {
@@ -211,6 +219,9 @@ h6  {
   .category-page-hero {
     width:45%;
     top: 4%;
+  }
+  .category-page-bottom-blackout {
+    height: 13%;
   }
 }
 
