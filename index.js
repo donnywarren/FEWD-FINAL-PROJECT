@@ -1,9 +1,70 @@
 $(document).ready(function(){
 
 
-  // $(".hero").on("click",fetchPopular);
 
-  document.querySelector(".hero").addEventListener("click",fetchPopular);
+// PAGE SELECTOR BUTTONS
+  $(".news").on("click", categoryPageN);
+
+  function categoryPageN() {
+    $(".image-boredom-busters-small, .image-boredom-busters-large, .category-logo").addClass("animate-logo");
+    setTimeout(openNews, 750);
+  };
+
+  function openNews() {
+    window.location = "news.html";
+  }
+
+  $(".meme").on("click", categoryPageM);
+
+  function categoryPageM() {
+    $(".image-boredom-busters-small, .image-boredom-busters-large, .category-logo").addClass("animate-logo");
+    setTimeout(openMeme, 750);
+  };
+
+  function openMeme() {
+    window.location = "meme.html";
+  }
+
+  $(".trivia").on("click", categoryPageP);
+
+  function categoryPageP() {
+    $(".image-boredom-busters-small, .image-boredom-busters-large, .category-logo").addClass("animate-logo");
+    setTimeout(openTrivia, 750);
+  };
+
+  function openTrivia() {
+    window.location = "trivia.html";
+  }
+
+  $(".jokes").on("click", categoryPageJ);
+
+  function categoryPageJ() {
+    $(".image-boredom-busters-small, .image-boredom-busters-large, .category-logo").addClass("animate-logo");
+    setTimeout(openJokes, 750);
+  };
+
+  function openJokes() {
+    window.location = "joke.html";
+  }
+
+  $(".home").on("click", homePage);
+
+  function homePage() {
+    $(".image-boredom-busters-small, .image-boredom-busters-large, .category-logo").addClass("animate-logo");
+    setTimeout(openHome, 750);
+  };
+
+  function openHome() {
+    window.location = "index.html";
+  }
+
+
+
+
+
+  $(".fetch-button").on("click",fetchPopular);
+
+  // document.querySelector(".fetch-button").addEventListener("click",fetchPopular);
 
   //
   //
