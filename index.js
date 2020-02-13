@@ -62,26 +62,22 @@ $(document).ready(function(){
 
 
 
-  $(".fetch-button").on("click",fetchPopular);
+$(".fetch-button-meme").on("click", fetchMeme);
 
-  // document.querySelector(".fetch-button").addEventListener("click",fetchPopular);
+  function fetchMeme() {
+        $.ajax({
+          cache: false,
+          url: "https://meme-api.herokuapp.com/gimme/dankmemes",
+          success: function(data) {
+            console.log(data);
+            var meme = data.url;
+            var $memeCard = `<img src=${meme} class="meme-image" alt="meme">`;
+            $(".meme-container").empty("meme-container");
+            $(".meme-container").append($memeCard);
+          }
+        });
+      }
 
-  //
-  //
-  // function fetchMeme() {
-  //       $.ajax({
-  //         cache: false,
-  //         url: "https://meme-api.herokuapp.com/gimme/dankmemes",
-  //         success: function(data) {
-  //           console.log(data);
-  //           var meme = data.url;
-  //           var $memeCard = `<img src=${meme} class="meme" alt="meme">`;
-  //           $(".image-container").append($memeCard);
-  //         }
-  //       });
-  //     }
-  //     fetchMeme();
-  //
 
 
 
@@ -112,6 +108,8 @@ $(document).ready(function(){
 
 
 
+  $(".fetch-button").on("click",fetchPopular);
+
 
   function fetchPopular() {
         $.ajax({
@@ -135,6 +133,8 @@ $(document).ready(function(){
       // fetchPopular();
 
 
+  $(".fetch-button-jokes").on("click", fetchJoke);
+
   function fetchJoke() {
         $.ajax({
           url: 'https://sv443.net/jokeapi/v2/joke/any',
@@ -145,13 +145,15 @@ $(document).ready(function(){
             var oneLiner = data.joke;
             var twoPart = data.setup;
             var delivery = data.delivery;
+            $(".oneliner, .setup, .delivery").empty();
             $(".oneliner").text(oneLiner);
             $(".setup").text(twoPart);
             $(".delivery").text(delivery);
           }
         });
       };
-      fetchJoke();
+
+
 
 
 // onload clossing braces below
