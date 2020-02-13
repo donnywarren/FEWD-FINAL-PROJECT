@@ -162,7 +162,7 @@ h6  {
 .bottom-blackout {
   position: fixed;
   bottom: 0;
-  height:10%;
+  height:13%;
   width: 100%;
   background: #000;
 }
@@ -207,5 +207,17 @@ h6  {
   }
   .image-boredom-busters-large {
     display: inherit;
+  }
+  .category-page-hero {
+    width:45%;
+    top: 4%;
+  }
+}
+
+
+@media only screen and (min-width: 1200px){
+  .category-page-hero {
+    width: 35%;
+    top: 3%;
   }
 }
