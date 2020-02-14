@@ -294,6 +294,72 @@ h6 {
   transform: translate(-50%);
 }
 
+/* .fetch-button-news {
+  position: absolute;
+  top: 75%;
+  width: 250px;
+  padding: 7px 15px;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 15px;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 200;
+} */
+
+.news-carousel {
+  top: 45%;
+  z-index: 1000;
+}
+
+.news-carousel-card {
+  position: relative;
+  width: 440px;
+  height: auto;
+}
+
+.article-title {
+  width: 100%;
+  top: 0;
+  font-size: 20px;
+  text-align: center;
+  padding: 4px 0;
+  background: rgba(255, 255, 255, 1);
+}
+
+.summary {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  font-size: 14px;
+  text-align: center;
+  padding: 2px 0;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+}
+
+.web-link {
+  position: absolute;
+  bottom:0;
+  width: 440px;
+  height: 325px;
+  z-index: 500;
+}
+
+.web-link:hover {
+  cursor: pointer;
+}
+
+.web-link:focus {
+  outline: none;
+}
+
+
 
 @media only screen and (min-width: 630px){
   .meme-layout {

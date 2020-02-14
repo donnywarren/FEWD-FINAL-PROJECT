@@ -108,7 +108,8 @@ $(".fetch-button-meme").on("click", fetchMeme);
 
 
 
-  $(".fetch-button").on("click",fetchPopular);
+  // $(".fetch-button-news").on("click",fetchPopular);
+  fetchPopular();
 
 
   function fetchPopular() {
@@ -116,14 +117,16 @@ $(".fetch-button-meme").on("click", fetchMeme);
           url: 'https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=aMR4G9Ibl090nQ3jWfBsNSLnaLgN6dUz',
           success: function(data) {
             console.log(data);
-            var description = data.results[7].title;
-            var delivery = data.results[7].url;
-            var photo = data.results[7].media[0]["media-metadata"][2].url;
+            var title = data.results[6].title;
+            var summary = data.results[6].abstract;
+            var webLink = data.results[6].url;
+            var photo = data.results[6].media[0]["media-metadata"][2].url;
 
-            $(".description").text(description);
-            $(".delivery").text(delivery);
+            $(".article-title").text(title);
+            $(".summary").text(summary);
+            $(".web-link").attr("href", webLink);
             $(".photo").attr("src", photo);
-            console.log(photo);
+            // console.log(webLink);
             // data.results.forEach(makeCard);
             // data.results.forEach(function(user) {
             // });
@@ -131,6 +134,7 @@ $(".fetch-button-meme").on("click", fetchMeme);
         });
       }
       // fetchPopular();
+
 
 
   $(".fetch-button-jokes").on("click", fetchJoke);
@@ -152,6 +156,21 @@ $(".fetch-button-meme").on("click", fetchMeme);
           }
         });
       };
+
+  $('.news-carousel').slick({
+    slidesToShow: 3,
+    prevArrow: '<img class="slick-prev kitten-button" src="images/one.jpg">',
+    nextArrow: '<img class="slick-next kitten-button" src="images/one.jpg">',
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          fade: true,
+        }
+      }
+    ]
+  });
 
 
 
