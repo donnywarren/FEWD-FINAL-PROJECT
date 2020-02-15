@@ -106,37 +106,6 @@ $(".fetch-button-meme").on("click", fetchMeme);
 
 
 
-
-
-  // $(".fetch-button-news").on("click",fetchPopular);
-  fetchPopular();
-
-
-  function fetchPopular() {
-        $.ajax({
-          url: 'https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=aMR4G9Ibl090nQ3jWfBsNSLnaLgN6dUz',
-          success: function(data) {
-            console.log(data);
-            var title = data.results[6].title;
-            var summary = data.results[6].abstract;
-            var webLink = data.results[6].url;
-            var photo = data.results[6].media[0]["media-metadata"][2].url;
-
-            $(".article-title").text(title);
-            $(".summary").text(summary);
-            $(".web-link").attr("href", webLink);
-            $(".photo").attr("src", photo);
-            // console.log(webLink);
-            // data.results.forEach(makeCard);
-            // data.results.forEach(function(user) {
-            // });
-          }
-        });
-      }
-      // fetchPopular();
-
-
-
   $(".fetch-button-jokes").on("click", fetchJoke);
 
   function fetchJoke() {
@@ -157,20 +126,67 @@ $(".fetch-button-meme").on("click", fetchMeme);
         });
       };
 
-  $('.news-carousel').slick({
-    slidesToShow: 3,
-    prevArrow: '<img class="slick-prev kitten-button" src="images/one.jpg">',
-    nextArrow: '<img class="slick-next kitten-button" src="images/one.jpg">',
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          fade: true,
-        }
-      }
-    ]
-  });
+
+
+      // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        fetchPopularNews();
+
+          function fetchPopularNews() {
+            $.ajax({
+              url: 'https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=aMR4G9Ibl090nQ3jWfBsNSLnaLgN6dUz',
+              success: function(data) {
+                console.log(data);
+                data.results.forEach(function(news) {
+                makeCard(news);
+              });
+              }
+            });
+          }
+
+
+          function makeCard(news) {
+            var title = news.title;
+            var summary = news.abstract;
+            var photo = news.media[0]["media-metadata"][2].url;
+            var webLink = news.url;
+
+            var $articleTitle = $('<div class="article-title"></div>');
+            var $summary = $('<div class="summary"></div>');
+            var $photo = $('<img class="photo" src="" alt="">');
+            var $webLink = $('<div class="web-link"><a href="" target="_blank" class="web-link"></a></div>');
+
+            $(".article-title").text(title);
+            $(".summary").text(summary);
+            $(".photo").attr("src", photo);
+            $(".web-link").attr("href", webLink);
+
+            $(".news-carousel-card").append($articleTitle);
+            $(".news-carousel-card").append($summary);
+            $(".news-carousel-card").append($photo);
+            $(".news-carousel-card").append($webLink);
+
+          }
+
+
+
+
+
+
+  // $('.news-carousel').slick({
+  //   slidesToShow: 3,
+  //   prevArrow: '<img class="slick-prev kitten-button" src="images/one.jpg">',
+  //   nextArrow: '<img class="slick-next kitten-button" src="images/one.jpg">',
+  //   responsive: [
+  //     {
+  //       breakpoint: 1024,
+  //       settings: {
+  //         slidesToShow: 1,
+  //         fade: true,
+  //       }
+  //     }
+  //   ]
+  // });
 
 
 
