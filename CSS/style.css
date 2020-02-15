@@ -294,6 +294,188 @@ h6 {
   transform: translate(-50%);
 }
 
+
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   TRIVA PAGE   !!!!!!!!!!!!!!!!!!!!!!!!! */
+
+
+
+  .selector-cube-container {
+    position: absolute;
+    bottom: 18%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 5000;
+  }
+
+
+  @keyframes spincube {
+    from,to {
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    16% {
+      transform: rotateY(-90deg);
+    }
+    33% {
+      transform: rotateY(-90deg) rotateZ(90deg);
+    }
+    50% {
+      transform: rotateY(-180deg) rotateZ(90deg);
+    }
+    66% {
+      transform: rotateY(-270deg) rotateX(90deg);
+    }
+    83% {
+      transform: rotateX(90deg);
+    }
+  }
+
+  .cubespinner {
+    -webkit-animation-name: spincube;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 12s;
+    transform-style: preserve-3d;
+    transform-origin: 75px 75px 0;
+  }
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+  .cubespinner:hover {
+    animation-play-state: paused;
+  }
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+  .cubespinner div {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    font-family: 'Fredoka One', cursive;
+    border: 1px solid #ccc;
+    background: rgba(255,255,255,0.8);
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+    line-height: 150px;
+    text-align: center;
+    font-size: 28px;
+  }
+
+  .movie {
+    line-height: 35px;
+    padding-top: 40px;
+  }
+
+  .quotes {
+    line-height: 35px;
+    padding-bottom: 40px;
+  }
+
+
+  .cubespinner .panel-1 {
+    transform: translateZ(75px);
+  }
+  .cubespinner .panel-2 {
+    transform: rotateY(90deg) translateZ(75px);
+  }
+  .cubespinner .panel-3 {
+    transform: rotateY(90deg) rotateX(90deg) translateZ(75px);
+  }
+  .cubespinner .panel-4 {
+    transform: rotateY(180deg) rotateZ(90deg) translateZ(75px);
+  }
+  .cubespinner .panel-5 {
+    transform: rotateY(-90deg) rotateZ(90deg) translateZ(75px);
+  }
+  .cubespinner .panel-6 {
+    transform: rotateX(-90deg) translateZ(75px);
+  }
+
+  .panel-1:hover, .panel-2:hover, .panel-3:hover, .panel-4:hover, .panel-5:hover, .panel-6:hover {
+    color: blue;
+    cursor: pointer;
+    font-size: 32px ;
+  }
+
+
+
+/*
+
+.category-cube-stage {
+  position: relative;
+  font-family: 'Fredoka One', cursive;
+  width: 150px;
+  height: 150px;
+
+}
+
+.category-cube-container div{
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border: 1px solid #ccc;
+  background: rgba(255,255,255,0.8);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+  text-align: center;
+  line-height: 150px;
+  font-size: 30px;
+}
+
+.category-cube-container {
+  -webkit-animation-name: rotateCube;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-duration: 12s;
+  transform-style: preserve-3d;
+  transform-origin: 75px 75px 0;
+}
+
+
+
+.category-cube-container .category-dogs {
+  transform: translateZ(75px);
+}
+
+.category-cube-container .category-fashion {
+  transform: rotateY(90deg) translateZ(75px);
+}
+
+.category-cube-container .category-beer {
+  transform: rotateY(90deg) rotateX(90deg) translateZ(75px);
+}
+
+.category-cube-container .category-movie-quotes {
+  transform: rotateY(180deg) rotateZ(90deg) translateZ(75px);
+}
+
+.category-cube-container .category-space {
+  transform: rotateY(-90deg) rotateZ(90deg) translateZ(75px);
+}
+
+.category-cube-container .category-sex {
+  transform: rotateX(-90deg) translateZ(75px);
+}
+
+.movie {
+  line-height: 35px;
+  padding-top: 40px;
+}
+
+.quotes {
+  line-height: 35px;
+  padding-bottom: 40px;
+}
+
+@keyframes rotate-cube{
+  from,to  {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
+  16% {transform: rotateY(-90deg);}
+  33% {transform: rotateY(-90deg) rotateZ(90deg);}
+  50% {transform: rotateY(-180deg) rotateZ(90deg);}
+  66% {transform: rotateY(-270deg) rotateX(90deg);}
+  83% {transform: rotateX(90deg);}
+}
+ */
+
+
+
+
+
 /* .fetch-button-news {
   position: absolute;
   top: 75%;
@@ -308,9 +490,11 @@ h6 {
   z-index: 200;
 } */
 
+
+/* !!!!!!!!!!!!!!!!!!!!!!  NEWS PAGE   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 .news-carousel {
   top: 45%;
-  z-index: 1000;
+  z-index: 800;
 }
 
 .news-carousel-card {
@@ -336,6 +520,7 @@ h6 {
   text-align: center;
   padding: 2px 0;
   background: rgba(255, 255, 255, 0.8);
+  z-index: 900;
 }
 
 .photo {
@@ -348,7 +533,7 @@ h6 {
   bottom:0;
   width: 440px;
   height: 325px;
-  z-index: 500;
+  z-index: 1000;
 }
 
 .web-link:hover {
@@ -360,6 +545,8 @@ h6 {
 }
 
 
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!  MEDIA QUERIES   !!!!!!!!!!!!!!!!!!!!!!!!! */
 
 @media only screen and (min-width: 630px){
   .meme-layout {

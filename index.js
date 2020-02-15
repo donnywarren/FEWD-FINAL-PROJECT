@@ -1,8 +1,7 @@
 $(document).ready(function(){
 
+// !!!!!!!!!!!!!!!!!!!!!!!!!   PAGE SELECTOR BUTTONS  !!!!!!!!!!!!!!!!!!!
 
-
-// PAGE SELECTOR BUTTONS
   $(".news").on("click", categoryPageN);
 
   function categoryPageN() {
@@ -59,7 +58,7 @@ $(document).ready(function(){
   }
 
 
-
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!  MEME  !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 $(".fetch-button-meme").on("click", fetchMeme);
@@ -79,31 +78,44 @@ $(".fetch-button-meme").on("click", fetchMeme);
       }
 
 
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!    TRIVIA  !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-  // function fetchTrivia() {
-  //       $.ajax({
-  //         cache: false,
-  //         url: "https://api.fungenerators.com/trivia/random/?category=space&api_key=u9czR36lHWuhDuHeD3gDuQeF",
-  //         // categories: movie-quotes, beer, sex, space, dogs, fashion
-  //         success: function(data) {
-  //           console.log(data);
-  //           var description = data.contents[0].question;
-  //           var delivery = data.contents[0].answer;
-  //           // var photo = data.results[19].media[0].media-metadata[2];
-  //           //
-  //           $(".description").text(description);
-  //           $(".delivery").text(delivery);
-  //           // $(".photo").attr("src", photo);
-  //           // data.results.forEach(makeCard);
-  //           // data.results.forEach(function(user) {
-  //           // });
-  //         }
-  //       });
-  //     }
-  //     fetchTrivia();
+
+$(".cubespinner .panel-1").on("click", test);
+
+  function test() {
+    $(".zone").text("testing");
+  }
 
 
+
+
+  function fetchTrivia() {
+        $.ajax({
+          cache: false,
+          url: "https://api.fungenerators.com/trivia/random/?category=space&api_key=u9czR36lHWuhDuHeD3gDuQeF",
+          // categories: movie-quotes, beer, sex, space, dogs, fashion
+          success: function(data) {
+            console.log(data);
+            var description = data.contents[0].question;
+            var delivery = data.contents[0].answer;
+            // var photo = data.results[19].media[0].media-metadata[2];
+            //
+            $(".description").text(description);
+            $(".delivery").text(delivery);
+            // $(".photo").attr("src", photo);
+            // data.results.forEach(makeCard);
+            // data.results.forEach(function(user) {
+            // });
+          }
+        });
+      }
+
+
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!  JOKES  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
   $(".fetch-button-jokes").on("click", fetchJoke);
@@ -126,48 +138,45 @@ $(".fetch-button-meme").on("click", fetchMeme);
         });
       };
 
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!  NEWS  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+  fetchPopularNews();
+
+    function fetchPopularNews() {
+      $.ajax({
+        url: 'https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=aMR4G9Ibl090nQ3jWfBsNSLnaLgN6dUz',
+        success: function(data) {
+          console.log(data);
+          data.results.forEach(function(news) {
+          makeCard(news);
+        });
+        }
+      });
+    }
 
 
-      // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    function makeCard(news) {
+      var title = news.title;
+      var summary = news.abstract;
+      var photo = news.media[0]["media-metadata"][2].url;
+      var webLink = news.url;
 
-        fetchPopularNews();
+      var $articleTitle = $('<div class="article-title"></div>');
+      var $summary = $('<div class="summary"></div>');
+      var $photo = $('<img class="photo" src="" alt="">');
+      var $webLink = $('<div class="web-link"><a href="" target="_blank" class="web-link"></a></div>');
 
-          function fetchPopularNews() {
-            $.ajax({
-              url: 'https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=aMR4G9Ibl090nQ3jWfBsNSLnaLgN6dUz',
-              success: function(data) {
-                console.log(data);
-                data.results.forEach(function(news) {
-                makeCard(news);
-              });
-              }
-            });
-          }
+      $(".article-title").text(title);
+      $(".summary").text(summary);
+      $(".photo").attr("src", photo);
+      $(".web-link").attr("href", webLink);
 
+      $(".news-carousel-card").append($articleTitle);
+      $(".news-carousel-card").append($summary);
+      $(".news-carousel-card").append($photo);
+      $(".news-carousel-card").append($webLink);
 
-          function makeCard(news) {
-            var title = news.title;
-            var summary = news.abstract;
-            var photo = news.media[0]["media-metadata"][2].url;
-            var webLink = news.url;
-
-            var $articleTitle = $('<div class="article-title"></div>');
-            var $summary = $('<div class="summary"></div>');
-            var $photo = $('<img class="photo" src="" alt="">');
-            var $webLink = $('<div class="web-link"><a href="" target="_blank" class="web-link"></a></div>');
-
-            $(".article-title").text(title);
-            $(".summary").text(summary);
-            $(".photo").attr("src", photo);
-            $(".web-link").attr("href", webLink);
-
-            $(".news-carousel-card").append($articleTitle);
-            $(".news-carousel-card").append($summary);
-            $(".news-carousel-card").append($photo);
-            $(".news-carousel-card").append($webLink);
-
-          }
-
+    }
 
 
 
