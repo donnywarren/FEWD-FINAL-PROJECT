@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 // !!!!!!!!!!!!!!!!!!!!!!!!!   PAGE SELECTOR BUTTONS  !!!!!!!!!!!!!!!!!!!
 
   $(".news").on("click", categoryPageN);
@@ -68,7 +67,7 @@ $(".fetch-button-meme").on("click", fetchMeme);
           cache: false,
           url: "https://meme-api.herokuapp.com/gimme/dankmemes",
           success: function(data) {
-            console.log(data);
+            // console.log(data);
             var meme = data.url;
             var $memeCard = `<img src=${meme} class="meme-image" alt="meme">`;
             $(".meme-container").empty("meme-container");
@@ -97,8 +96,6 @@ function removeFlip() {
 function getCategory() {
   var test = $(this);
   var categoryName = test.html();
-  console.log(test);
-  console.log(categoryName);
 
   fetchTrivia(categoryName);
 }
@@ -112,7 +109,6 @@ function fetchTrivia(categoryName) {
         // categories: olympics, beer, sex, space, dogs, fashion
 
         success: function(data) {
-          console.log(data);
           var question = data.contents[0].question;
           var answer = data.contents[0].answer;
           $(".trivia-question").text(question);
@@ -135,7 +131,6 @@ function fetchTrivia(categoryName) {
           // url: 'https://sv443.net/jokeapi/v2/joke/any/?type=single',
           // url: 'https://sv443.net/jokeapi/v2/joke/any/?type=twopart',
           success: function(data) {
-            console.log(data);
             var oneLiner = data.joke;
             var twoPart = data.setup;
             var delivery = data.delivery;
@@ -155,10 +150,9 @@ function fetchTrivia(categoryName) {
       $.ajax({
         url: 'https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=aMR4G9Ibl090nQ3jWfBsNSLnaLgN6dUz',
         success: function(data) {
-          console.log(data);
           data.results.forEach(function(news) {
-          makeCard(news);
-        });
+            makeCard(news);
+          });
         }
       });
     }
@@ -175,16 +169,15 @@ function fetchTrivia(categoryName) {
       var $photo = $('<img class="photo" src="" alt="">');
       var $webLink = $('<div class="web-link"><a href="" target="_blank" class="web-link"></a></div>');
 
-      $(".article-title").text(title);
-      $(".summary").text(summary);
-      $(".photo").attr("src", photo);
-      $(".web-link").attr("href", webLink);
+      $articleTitle.text(title);
+      $summary.text(summary);
+      $photo.attr("src", photo);
+      $webLink.attr("href", webLink);
 
       $(".news-carousel-card").append($articleTitle);
       $(".news-carousel-card").append($summary);
       $(".news-carousel-card").append($photo);
       $(".news-carousel-card").append($webLink);
-
     }
 
 

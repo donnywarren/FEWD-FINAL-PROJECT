@@ -350,6 +350,7 @@ h6 {
   box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
   transform: rotateX(-180deg);
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .trivia-answer-front {
@@ -359,6 +360,7 @@ h6 {
   color: #fff;
   background: #111;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .trivia-answer-back:hover, .trivia-answer-front:hover {
@@ -371,6 +373,8 @@ h6 {
   -webkit-animation-fill-mode: forwards;
   transform-style: preserve-3d;
   transform-origin: 0 35px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 @keyframes flip {
