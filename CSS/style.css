@@ -177,27 +177,6 @@ h6 {
   background: #000;
 }
 
-.photo {
-  width: 300px;
-  height: auto;
-}
-
-.meme-image {
-  width: 100%;
-  height: 100%;
-}
-
-.meme-container {
-  position: absolute;
-  width: 300px;
-  height: 425px;
-  background: #fff;
-  border: 8px double #000;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, 0);
-}
-
 .category-page-container {
   position: relative;
   height: 100vh;
@@ -221,11 +200,6 @@ h6 {
   z-index: 500;
 }
 
-.meme-layout {
-  top:0;
-
-}
-
 .category-page-bottom-blackout {
   position: fixed;
   bottom: 0;
@@ -233,6 +207,47 @@ h6 {
   width: 100%;
   background-image: linear-gradient(to top, rgba(0,0,0,1), rgba(0,0,0,0));
 }
+
+
+/* !!!!!!!!!!!!!!!!!!!!!!  MEME PAGE  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+
+.meme-image {
+  width: 100%;
+  height: 100%;
+}
+
+.meme-container {
+  position: absolute;
+  width: 300px;
+  height: 425px;
+  background: #fff;
+  border: 8px double #000;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.meme-layout {
+  top:0;
+
+}
+
+.fetch-button-meme {
+  position: absolute;
+  top: 100%;
+  width: 250px;
+  padding: 7px 15px;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 15px;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+  left: 50%;
+  transform: translate(-50%);
+}
+
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!  JOKE PAGE  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
 .activity-container {
   position: absolute;
@@ -281,144 +296,135 @@ h6 {
   cursor: pointer;
 }
 
-.fetch-button-meme {
+
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!   TRIVA PAGE   !!!!!!!!!!!!!!!!!!!!!!!!! */
+
+.trivia-question {
   position: absolute;
-  top: 100%;
-  width: 250px;
-  padding: 7px 15px;
-  background: #fff;
-  border: 2px solid #000;
-  border-radius: 15px;
-  box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+  top: 30%;
   left: 50%;
   transform: translate(-50%);
+  width:80%;
+  min-height: 50px;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: justify;
+  background: #fff;
+  border: 1px solid #000;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
 }
 
-
-
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!   TRIVA PAGE   !!!!!!!!!!!!!!!!!!!!!!!!! */
-
-
-
-  .selector-cube-container {
-    position: absolute;
-    bottom: 18%;
-    left: 50%;
-    transform: translate(-50%);
-    z-index: 5000;
-  }
-
-
-  @keyframes spincube {
-    from,to {
-      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-    }
-    16% {
-      transform: rotateY(-90deg);
-    }
-    33% {
-      transform: rotateY(-90deg) rotateZ(90deg);
-    }
-    50% {
-      transform: rotateY(-180deg) rotateZ(90deg);
-    }
-    66% {
-      transform: rotateY(-270deg) rotateX(90deg);
-    }
-    83% {
-      transform: rotateX(90deg);
-    }
-  }
-
-  .cubespinner {
-    -webkit-animation-name: spincube;
-    -webkit-animation-timing-function: ease-in-out;
-    -webkit-animation-iteration-count: infinite;
-    -webkit-animation-duration: 12s;
-    transform-style: preserve-3d;
-    transform-origin: 75px 75px 0;
-  }
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-  .cubespinner:hover {
-    animation-play-state: paused;
-  }
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
-
-  .cubespinner div {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    font-family: 'Fredoka One', cursive;
-    border: 1px solid #ccc;
-    background: rgba(255,255,255,0.8);
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
-    line-height: 150px;
-    text-align: center;
-    font-size: 28px;
-  }
-
-  .movie {
-    line-height: 35px;
-    padding-top: 40px;
-  }
-
-  .quotes {
-    line-height: 35px;
-    padding-bottom: 40px;
-  }
-
-
-  .cubespinner .panel-1 {
-    transform: translateZ(75px);
-  }
-  .cubespinner .panel-2 {
-    transform: rotateY(90deg) translateZ(75px);
-  }
-  .cubespinner .panel-3 {
-    transform: rotateY(90deg) rotateX(90deg) translateZ(75px);
-  }
-  .cubespinner .panel-4 {
-    transform: rotateY(180deg) rotateZ(90deg) translateZ(75px);
-  }
-  .cubespinner .panel-5 {
-    transform: rotateY(-90deg) rotateZ(90deg) translateZ(75px);
-  }
-  .cubespinner .panel-6 {
-    transform: rotateX(-90deg) translateZ(75px);
-  }
-
-  .panel-1:hover, .panel-2:hover, .panel-3:hover, .panel-4:hover, .panel-5:hover, .panel-6:hover {
-    color: blue;
-    cursor: pointer;
-    font-size: 32px ;
-  }
-
-
-
-/*
-
-.category-cube-stage {
-  position: relative;
-  font-family: 'Fredoka One', cursive;
-  width: 150px;
-  height: 150px;
-
-}
-
-.category-cube-container div{
+.trivia-answer-container {
   position: absolute;
-  width: 150px;
-  height: 150px;
-  border: 1px solid #ccc;
-  background: rgba(255,255,255,0.8);
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
-  text-align: center;
-  line-height: 150px;
-  font-size: 30px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%);
+  width: 300px;
+  height: 70px;
+  z-index: 500;
 }
 
-.category-cube-container {
-  -webkit-animation-name: rotateCube;
+.trivia-answer-stage {
+  position: absolute;
+  width: 300px;
+  height: 70px;
+  text-align: center;
+  -webkit-perspective: 1200px;
+  -moz-perspective: 1200px;
+  -ms-perspective: 1200px;
+  perspective: 1200px;
+}
+
+.trivia-answer-flipcard div{
+  position: absolute;
+  width: 300px;
+  height: 70px;
+}
+
+.trivia-answer-back {
+  padding: 20px 0 0 0;
+  font-size: 16px;
+  background: #fff;
+  border: 1px solid #000;
+  box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+  transform: rotateX(-180deg);
+  backface-visibility: hidden;
+}
+
+.trivia-answer-front {
+  text-align: center;
+  line-height: 70px;
+  font-size: 20px;
+  color: #fff;
+  background: #111;
+  backface-visibility: hidden;
+}
+
+.trivia-answer-back:hover, .trivia-answer-front:hover {
+  cursor: pointer;
+}
+
+.flip {
+  -webkit-animation-name: flip;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  transform-style: preserve-3d;
+  transform-origin: 0 35px;
+}
+
+@keyframes flip {
+  to {
+    transform: rotateX(180deg);
+  }
+}
+
+.unflip {
+  -webkit-animation-name: flip;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+  transform-style: preserve-3d;
+  transform-origin: 0 35px;
+}
+
+@keyframes unflip {
+  to {
+    transform: rotateX(-180deg);
+  }
+}
+
+.selector-cube-container {
+  position: absolute;
+  bottom: 18%;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 100;
+}
+
+
+@keyframes spincube {
+  from,to {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  16% {
+    transform: rotateY(-90deg);
+  }
+  33% {
+    transform: rotateY(-90deg) rotateZ(90deg);
+  }
+  50% {
+    transform: rotateY(-180deg) rotateZ(90deg);
+  }
+  66% {
+    transform: rotateY(-270deg) rotateX(90deg);
+  }
+  83% {
+    transform: rotateX(90deg);
+  }
+}
+
+.cubespinner {
+  -webkit-animation-name: spincube;
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-duration: 12s;
@@ -426,72 +432,58 @@ h6 {
   transform-origin: 75px 75px 0;
 }
 
+.cubespinner:hover {
+  animation-play-state: paused;
+}
+
+.cubespinner div {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  font-family: 'Fredoka One', cursive;
+  border: 1px solid #ccc;
+  background: rgba(255,255,255,0.8);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+  line-height: 150px;
+  text-align: center;
+  font-size: 28px;
+}
 
 
-.category-cube-container .category-dogs {
+.cubespinner .panel-1 {
   transform: translateZ(75px);
 }
-
-.category-cube-container .category-fashion {
+.cubespinner .panel-2 {
   transform: rotateY(90deg) translateZ(75px);
 }
-
-.category-cube-container .category-beer {
+.cubespinner .panel-3 {
   transform: rotateY(90deg) rotateX(90deg) translateZ(75px);
 }
-
-.category-cube-container .category-movie-quotes {
+.cubespinner .panel-4 {
   transform: rotateY(180deg) rotateZ(90deg) translateZ(75px);
 }
-
-.category-cube-container .category-space {
+.cubespinner .panel-5 {
   transform: rotateY(-90deg) rotateZ(90deg) translateZ(75px);
 }
-
-.category-cube-container .category-sex {
+.cubespinner .panel-6 {
   transform: rotateX(-90deg) translateZ(75px);
 }
 
-.movie {
-  line-height: 35px;
-  padding-top: 40px;
+.panel-1:hover, .panel-2:hover, .panel-3:hover, .panel-4:hover, .panel-5:hover, .panel-6:hover {
+  color: blue;
+  cursor: pointer;
+  font-size: 32px ;
 }
-
-.quotes {
-  line-height: 35px;
-  padding-bottom: 40px;
-}
-
-@keyframes rotate-cube{
-  from,to  {transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);}
-  16% {transform: rotateY(-90deg);}
-  33% {transform: rotateY(-90deg) rotateZ(90deg);}
-  50% {transform: rotateY(-180deg) rotateZ(90deg);}
-  66% {transform: rotateY(-270deg) rotateX(90deg);}
-  83% {transform: rotateX(90deg);}
-}
- */
-
-
-
-
-
-/* .fetch-button-news {
-  position: absolute;
-  top: 75%;
-  width: 250px;
-  padding: 7px 15px;
-  background: #fff;
-  border: 2px solid #000;
-  border-radius: 15px;
-  box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
-  left: 50%;
-  transform: translate(-50%);
-  z-index: 200;
-} */
 
 
 /* !!!!!!!!!!!!!!!!!!!!!!  NEWS PAGE   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+
+
+.photo {
+  width: 100%;
+  height: auto;
+}
+
 .news-carousel {
   top: 45%;
   z-index: 800;
@@ -521,11 +513,6 @@ h6 {
   padding: 2px 0;
   background: rgba(255, 255, 255, 0.8);
   z-index: 900;
-}
-
-.photo {
-  width: 100%;
-  height: auto;
 }
 
 .web-link {

@@ -80,37 +80,46 @@ $(".fetch-button-meme").on("click", fetchMeme);
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!    TRIVIA  !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
+$(".trivia-answer-front").on("click", addFlip);
+
+function addFlip(){
+  $(".trivia-answer-flipcard").addClass("flip");
+}
+
+$(".cubespinner").on("click", removeFlip);
+$(".cubespinner div").on("click", getCategory);
 
 
-$(".cubespinner .panel-1").on("click", test);
+function removeFlip() {
+  $(".trivia-answer-flipcard").removeClass("flip");
+}
 
-  function test() {
-    $(".zone").text("testing");
-  }
+function getCategory() {
+  var test = $(this);
+  var categoryName = test.html();
+  console.log(test);
+  console.log(categoryName);
+
+  fetchTrivia(categoryName);
+}
 
 
+function fetchTrivia(categoryName) {
+      $.ajax({
+        cache: false,
+        url: `https://api.fungenerators.com/trivia/random/?category=${categoryName}&api_key=u9czR36lHWuhDuHeD3gDuQeF`,
 
+        // categories: olympics, beer, sex, space, dogs, fashion
 
-  function fetchTrivia() {
-        $.ajax({
-          cache: false,
-          url: "https://api.fungenerators.com/trivia/random/?category=space&api_key=u9czR36lHWuhDuHeD3gDuQeF",
-          // categories: movie-quotes, beer, sex, space, dogs, fashion
-          success: function(data) {
-            console.log(data);
-            var description = data.contents[0].question;
-            var delivery = data.contents[0].answer;
-            // var photo = data.results[19].media[0].media-metadata[2];
-            //
-            $(".description").text(description);
-            $(".delivery").text(delivery);
-            // $(".photo").attr("src", photo);
-            // data.results.forEach(makeCard);
-            // data.results.forEach(function(user) {
-            // });
-          }
-        });
-      }
+        success: function(data) {
+          console.log(data);
+          var question = data.contents[0].question;
+          var answer = data.contents[0].answer;
+          $(".trivia-question").text(question);
+          $(".trivia-answer-back").text(answer);
+        }
+      });
+    }
 
 
 
