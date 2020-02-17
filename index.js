@@ -1,4 +1,5 @@
 $(document).ready(function(){
+
 // !!!!!!!!!!!!!!!!!!!!!!!!!   PAGE SELECTOR BUTTONS  !!!!!!!!!!!!!!!!!!!
 
   $(".news").on("click", categoryPageN);
@@ -123,81 +124,78 @@ function fetchTrivia(categoryName) {
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!  JOKES  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-  $(".fetch-button-jokes").on("click", fetchJoke);
+$(".fetch-button-jokes").on("click", fetchJoke);
 
-  function fetchJoke() {
-        $.ajax({
-          url: 'https://sv443.net/jokeapi/v2/joke/any',
-          // url: 'https://sv443.net/jokeapi/v2/joke/any/?type=single',
-          // url: 'https://sv443.net/jokeapi/v2/joke/any/?type=twopart',
-          success: function(data) {
-            var oneLiner = data.joke;
-            var twoPart = data.setup;
-            var delivery = data.delivery;
-            $(".oneliner, .setup, .delivery").empty();
-            $(".oneliner").text(oneLiner);
-            $(".setup").text(twoPart);
-            $(".delivery").text(delivery);
-          }
-        });
-      };
+function fetchJoke() {
+      $.ajax({
+        url: 'https://sv443.net/jokeapi/v2/joke/any',
+        // url: 'https://sv443.net/jokeapi/v2/joke/any/?type=single',
+        // url: 'https://sv443.net/jokeapi/v2/joke/any/?type=twopart',
+        success: function(data) {
+          var oneLiner = data.joke;
+          var twoPart = data.setup;
+          var delivery = data.delivery;
+          $(".oneliner, .setup, .delivery").empty();
+          $(".oneliner").text(oneLiner);
+          $(".setup").text(twoPart);
+          $(".delivery").text(delivery);
+        }
+      });
+    };
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!  NEWS  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-  fetchPopularNews();
+fetchPopularNews();
 
-    function fetchPopularNews() {
-      $.ajax({
-        url: 'https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=aMR4G9Ibl090nQ3jWfBsNSLnaLgN6dUz',
-        success: function(data) {
-          data.results.forEach(function(news) {
-            makeCard(news);
-          });
-        }
-      });
-    }
-
-
-    function makeCard(news) {
-      var title = news.title;
-      var summary = news.abstract;
-      var photo = news.media[0]["media-metadata"][2].url;
-      var webLink = news.url;
-
-      var $articleTitle = $('<div class="article-title"></div>');
-      var $summary = $('<div class="summary"></div>');
-      var $photo = $('<img class="photo" src="" alt="">');
-      var $webLink = $('<div class="web-link"><a href="" target="_blank" class="web-link"></a></div>');
-
-      $articleTitle.text(title);
-      $summary.text(summary);
-      $photo.attr("src", photo);
-      $webLink.attr("href", webLink);
-
-      $(".news-carousel-card").append($articleTitle);
-      $(".news-carousel-card").append($summary);
-      $(".news-carousel-card").append($photo);
-      $(".news-carousel-card").append($webLink);
-    }
+  function fetchPopularNews() {
+    $.ajax({
+      url: 'https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=aMR4G9Ibl090nQ3jWfBsNSLnaLgN6dUz',
+      success: function(data) {
+        console.log(data);
+        data.results.forEach(function(news) {
+        console.log(news);
+          makeCard(news);
+        });
+        $('.news-carousel').slick();
+      }
+    });
+  }
 
 
+  function makeCard(news) {
+    var title = news.title;
+    var summary = news.abstract;
+    var photo = news.media[0]["media-metadata"][2].url;
+    var webLink = news.url;
+
+    var $articleTitle = $('<div class="article-title"></div>');
+    var $summary = $('<div class="summary"></div>');
+    var $photo = $('<img class="photo" src="" alt="">');
+    var $webLink = $('<div class="web-link"></div>');
+    var $anchorLink = $('<a href="" target="_blank"></a>')
+
+    $articleTitle.text(title);
+    $summary.text(summary);
+    $photo.attr("src", photo);
+    $anchorLink.attr("href", webLink);
+
+    var $card = $('<div class="news-card"></div>');
+
+    // put all the content inside of the link
+    $anchorLink.append($articleTitle);
+    $anchorLink.append($summary);
+    $anchorLink.append($photo);
+    $anchorLink.append($webLink);
+
+    $card.append($anchorLink);
+
+
+    $(".news-carousel").append($card);
+  }
 
 
 
-  // $('.news-carousel').slick({
-  //   slidesToShow: 3,
-  //   prevArrow: '<img class="slick-prev kitten-button" src="images/one.jpg">',
-  //   nextArrow: '<img class="slick-next kitten-button" src="images/one.jpg">',
-  //   responsive: [
-  //     {
-  //       breakpoint: 1024,
-  //       settings: {
-  //         slidesToShow: 1,
-  //         fade: true,
-  //       }
-  //     }
-  //   ]
-  // });
+
 
 
 
