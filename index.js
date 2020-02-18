@@ -66,6 +66,8 @@ $(document).ready(function(){
   }
 
 
+
+
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!  MEME  !!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -76,7 +78,6 @@ $(".fetch-button-meme").on("click", fetchMeme);
           cache: false,
           url: "https://meme-api.herokuapp.com/gimme/dankmemes",
           success: function(data) {
-            // console.log(data);
             var meme = data.url;
             var $memeCard = `<img src=${meme} class="meme-image" alt="meme">`;
             $(".meme-container").empty("meme-container");
@@ -150,55 +151,58 @@ function fetchJoke() {
       });
     };
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!  NEWS  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-fetchPopularNews();
-
-  function fetchPopularNews() {
-    $.ajax({
-      url: 'https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=aMR4G9Ibl090nQ3jWfBsNSLnaLgN6dUz',
-      success: function(data) {
-        data.results.forEach(function(news) {
-          makeCard(news);
-        });
-        $('.news-carousel').slick();
-      }
-    });
-  }
 
 
-  function makeCard(news) {
-    if (!news.media) return;
 
-    var title = news.title;
-    var summary = news.abstract;
-    var photo = news.media[0]["media-metadata"][2].url;
-    var webLink = news.url;
+      // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!  NEWS  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    var $articleTitle = $('<div class="article-title"></div>');
-    var $summary = $('<div class="summary"></div>');
-    var $photo = $('<img class="photo" src="" alt="">');
-    var $webLink = $('<div class="web-link"></div>');
-    var $anchorLink = $('<a href="" target="_blank"></a>')
+      fetchPopularNews();
 
-    $articleTitle.text(title);
-    $summary.text(summary);
-    $photo.attr("src", photo);
-    $anchorLink.attr("href", webLink);
-
-    var $card = $('<div class="news-card"></div>');
-
-    // put all the content inside of the link
-    $anchorLink.append($articleTitle);
-    $anchorLink.append($summary);
-    $anchorLink.append($photo);
-    $anchorLink.append($webLink);
-
-    $card.append($anchorLink);
+        function fetchPopularNews() {
+          $.ajax({
+            url: 'https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=aMR4G9Ibl090nQ3jWfBsNSLnaLgN6dUz',
+            success: function(data) {
+              data.results.forEach(function(news) {
+                makeCard(news);
+              });
+              $('.news-carousel').slick();
+            }
+          });
+        }
 
 
-    $(".news-carousel").append($card);
-  }
+        function makeCard(news) {
+          if (!news.media) return;
+
+          var title = news.title;
+          var summary = news.abstract;
+          var photo = news.media[0]["media-metadata"][2].url;
+          var webLink = news.url;
+
+          var $articleTitle = $('<div class="article-title"></div>');
+          var $summary = $('<div class="summary"></div>');
+          var $photo = $('<img class="photo" src="" alt="">');
+          var $webLink = $('<div class="web-link"></div>');
+          var $anchorLink = $('<a href="" target="_blank"></a>')
+
+          $articleTitle.text(title);
+          $summary.text(summary);
+          $photo.attr("src", photo);
+          $anchorLink.attr("href", webLink);
+
+          var $card = $('<div class="news-card"></div>');
+
+          // put all the content inside of the link
+          $anchorLink.append($articleTitle);
+          $anchorLink.append($summary);
+          $anchorLink.append($photo);
+          $anchorLink.append($webLink);
+
+          $card.append($anchorLink);
+
+
+          $(".news-carousel").append($card);
+        }
 
 
 
