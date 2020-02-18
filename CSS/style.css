@@ -192,8 +192,9 @@ h6 {
   flex-direction: column;
   align-items: center;
   position: absolute;
-  width: 50%;
-  top:5%;
+  width: 60%;
+  max-width: 345px;
+  top:3%;
   left: 50%;
   transform: translate(-50%,0);
   text-align: center;
@@ -220,10 +221,10 @@ h6 {
 .meme-frame {
   position: absolute;
   width: 300px;
-  height: 425px;
+  height: 400px;
   background: #fff;
   border: 8px double #000;
-  top: 25%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, 0);
 }
@@ -239,16 +240,28 @@ h6 {
 .fetch-button-meme {
   position: absolute;
   top: 100%;
-  width: 250px;
-  padding: 7px 15px;
+  white-space: nowrap;
+  padding: 9px 15px;
   background: #fff;
   border: 2px solid #000;
   border-radius: 15px;
-  box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
+  box-shadow: 4px 4px 12px #000;
   left: 50%;
   transform: translate(-50%);
 }
 
+.fetch-button-meme:hover {
+  cursor: pointer;
+}
+
+.fetch-button-meme:hover h3 {
+  font-size: 22px;
+
+}.fetch-button-meme:active {
+  box-shadow: 2px 5px 4px #666;
+  transform: translate(-48%);
+  top: 103%;
+}
 
 /* !!!!!!!!!!!!!!!!!!!!!!!!!!!  JOKE PAGE  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
 
@@ -258,7 +271,7 @@ h6 {
   flex-direction:column;
   justify-content: center;
   align-items: center;
-  top: 15%;
+  top: 13%;
   left: 50%;
   transform: translate(-50%);
   width: 80%;
@@ -269,6 +282,7 @@ h6 {
   top: 0;
   min-height: 30%;
   width: 80%;
+  max-width: 570px;
   padding: 10px 20px;
   font-size: 16px;
   background: #fff;
@@ -283,20 +297,28 @@ h6 {
 
 .fetch-button-jokes {
   position: absolute;
-  bottom: 15%;
+  bottom: 20%;
   padding: 10px 20px;
   font-size: 24px;
   background: #fff;
+  white-space: nowrap;
   border: 2px solid #000;
   border-radius: 15px;
-  box-shadow: inset 0 0 15px rgba(0,0,0,0.4);
   left: 50%;
   transform: translate(-50%);
   z-index: 100;
+  box-shadow: 4px 4px 12px #000;
 }
 
-.fetch-button-jokes:hover, .fetch-button-meme:hover {
+.fetch-button-jokes:hover {
   cursor: pointer;
+  font-size: 26px;
+}
+
+.fetch-button-jokes:active {
+  box-shadow: 2px 5px 4px #666;
+  transform: translate(-48%);
+  bottom: 14.5%;
 }
 
 
@@ -309,6 +331,7 @@ h6 {
   left: 50%;
   transform: translate(-50%);
   width:80%;
+  max-width: 685px;
   min-height: 50px;
   padding: 10px 20px;
   font-size: 16px;
@@ -346,7 +369,7 @@ h6 {
 }
 
 .trivia-answer-back {
-  padding: 20px 0 0 0;
+  padding: 25px 0 0 0;
   font-size: 16px;
   background: #fff;
   border: 1px solid #000;
@@ -366,7 +389,7 @@ h6 {
   backface-visibility: hidden;
 }
 
-.trivia-answer-back:hover, .trivia-answer-front:hover {
+.trivia-answer-front:hover {
   cursor: pointer;
 }
 
@@ -386,7 +409,7 @@ h6 {
 
 .selector-cube-container {
   position: absolute;
-  bottom: 18%;
+  bottom: 20%;
   left: 50%;
   transform: translate(-50%);
   z-index: 100;
@@ -476,10 +499,11 @@ h6 {
 }
 
 .news-carousel {
-  top: 35%;
+  top: 245px;
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
+  max-width: 444px;
   z-index: 100;
 }
 
@@ -537,7 +561,7 @@ a {
 /* !!!!!!!!!!!!!!!!!!!!!!!!!  MEDIA QUERIES   !!!!!!!!!!!!!!!!!!!!!!!!! */
 
 @media only screen and (min-width: 630px){
-  .meme-layout {
+  .meme-layout-hero {
     left: 25%;
     top: 23%;
   }
@@ -546,9 +570,11 @@ a {
     top: 5%;
     width: 40%;
     min-width: 300px;
+    max-width: 475px;
     height: 75%;
   }
 }
+
 
 @media only screen and (min-width: 900px){
   .image-boredom-busters-small {
@@ -557,10 +583,10 @@ a {
   .image-boredom-busters-large {
     display: inherit;
   }
-  .category-page-hero {
+  /* .category-page-hero {
     width:45%;
     top: 4%;
-  }
+  } */
   .category-page-bottom-blackout {
     height: 13%;
   }
@@ -569,8 +595,8 @@ a {
     bottom: 20%;
   }
 
-  .meme-layout {
-    left: 25%;
+  .meme-layout-hero {
+    left: 27%;
     top: 23%;
   }
 }
@@ -582,8 +608,8 @@ a {
     top: 3%;
   }
 
-  .meme-layout {
-    left: 25%;
+  .meme-layout-hero {
+    left: 30%;
     top: 23%;
   }
 }

@@ -13,6 +13,8 @@ $(document).ready(function(){
     window.location = "news.html";
   }
 
+
+
   $(".meme").on("click", categoryPageM);
 
   function categoryPageM() {
@@ -23,6 +25,8 @@ $(document).ready(function(){
   function openMeme() {
     window.location = "meme.html";
   }
+
+
 
   $(".trivia").on("click", categoryPageP);
 
@@ -35,6 +39,8 @@ $(document).ready(function(){
     window.location = "trivia.html";
   }
 
+
+
   $(".jokes").on("click", categoryPageJ);
 
   function categoryPageJ() {
@@ -45,6 +51,8 @@ $(document).ready(function(){
   function openJokes() {
     window.location = "joke.html";
   }
+
+
 
   $(".home").on("click", homePage);
 
@@ -89,14 +97,13 @@ function addFlip(){
 $(".cubespinner").on("click", removeFlip);
 $(".cubespinner div").on("click", getCategory);
 
-
 function removeFlip() {
   $(".trivia-answer-flipcard").removeClass("flip");
 }
 
 function getCategory() {
-  var test = $(this);
-  var categoryName = test.html();
+  var $choice = $(this);
+  var categoryName = $choice.html();
 
   fetchTrivia(categoryName);
 }
@@ -151,9 +158,7 @@ fetchPopularNews();
     $.ajax({
       url: 'https://api.nytimes.com/svc/mostpopular/v2/emailed/7.json?api-key=aMR4G9Ibl090nQ3jWfBsNSLnaLgN6dUz',
       success: function(data) {
-        console.log(data);
         data.results.forEach(function(news) {
-        console.log(news);
           makeCard(news);
         });
         $('.news-carousel').slick();
@@ -163,6 +168,8 @@ fetchPopularNews();
 
 
   function makeCard(news) {
+    if (!news.media) return;
+
     var title = news.title;
     var summary = news.abstract;
     var photo = news.media[0]["media-metadata"][2].url;
